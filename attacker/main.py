@@ -1,7 +1,6 @@
 from locust import HttpLocust, TaskSet, task, between
 import json
 
-# Sorry still struct the data, distruct by family, will continue tomorrow
 class UserBehavior(TaskSet):
     @task(2)
     def index(self):
@@ -10,10 +9,16 @@ class UserBehavior(TaskSet):
         self.client.get("/")
 
     @task(1)
-    def about(self):
+    def shop(self):
+        # Shop
+        # TODO: collecting data random from data/__init__
+        self.client.get("/shop")
+    
+    @task(1)
+    def pdp(self):
         # PDP
         # TODO: collecting data random from data/__init__
-        self.client.get("/terpusat/demo-terpusat")
+        self.client.get("/shop/product")
  
  
 class WebsiteUser(HttpLocust):
