@@ -35,4 +35,5 @@ If you facing issue when running this service, visit me at [Terpusat](https://ou
 
 
 ### References
-- [Prometheus](https://github.com/prometheus/prometheus)
+- [Prometheus](https://prometheus.io/docs/introduction/overview/)
+- [Locust](https://docs.locust.io/en/stable/)
