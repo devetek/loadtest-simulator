@@ -55,7 +55,7 @@
         "bars": false,
         "dashLength": 10,
         "dashes": false,
-        "datasource": "${DS_PROMETHEUS}",
+        "datasource": "Prometheus",
         "fill": 1,
         "fillGradient": 0,
         "gridPos": {
@@ -145,7 +145,7 @@
         "bars": false,
         "dashLength": 10,
         "dashes": false,
-        "datasource": "${DS_PROMETHEUS}",
+        "datasource": "Prometheus",
         "fill": 1,
         "fillGradient": 0,
         "gridPos": {
@@ -290,7 +290,7 @@
         {
           "allValue": null,
           "current": {},
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "definition": "label_values(lite_zeus_http_response_count_total{request_uri!=\"\"}, request_uri)",
           "hide": 0,
           "includeAll": true,
