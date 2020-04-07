@@ -2,7 +2,9 @@
 
 ### How To Develop Your Own
 
-Create file under `attacker/task`, for example `zes.py` or `atreus.py`. Then create your own data from `attacker/data`, on this path also create your own data, for example `atreus.py`. After 2 file created, then edit file task you create previously, then import your data. And then follow this step below to.
+Create file under `attacker/task`, for example `zes.py` or `atreus.py`. Then create your own data from `attacker/data`, on this path also create your own data, for example `atreus.py`. After 2 file created, then edit file task you create previously, then import your data.
+
+After attacker created, please create your own exporter config here `nginx/access-log-exporter/lite-atreus.yml`. Edit the file base on your service/path requirement.
 
 ### Running All Requirement
 
