@@ -8,7 +8,7 @@ make run-dev
 
 After execute command above you will have port open in `9090`, `9100`, `9093`, `8080`, `3000`, `80`, `4040`. So make sure that, the port does not open before this service up. And oh, I think you want to know, why we need open too much port. It will be amazing to have all of those service, trust me!.
 
-Remember that, all of the port can be open in `localhost`, for example [Grafana](http://localhost:3000). You know all of the basic now, then, we can continue to the next phase, below!.
+Remember that, all of the port can be open in `localhost`, for example [Grafana](http://localhost:3000). With user (admin) and password (foobar) You know all of the basic now, then, we can continue to the next phase, below!.
 
 
 ### Running Attacker
