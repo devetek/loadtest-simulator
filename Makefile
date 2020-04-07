@@ -42,7 +42,7 @@ attack-me: .validator
 	$(eval WHICH_PY3 := $(shell which python3))
 	$(eval WHICH_VENV := $(shell which virtualenv))
 
-	@ test -n "$(WHICH_DOCKER)" || echo "No docker binary"
-	@ test -n "$(WHICH_COMPOSE)" || echo "No compose binary"
-	@ test -n "$(WHICH_PY3)" || echo "No python3 binary"
-	@ test -n "$(WHICH_VENV)" || echo "No virtualenv binary"
+	@ test -n "$(WHICH_DOCKER)" || sh -c 'echo "No docker binary" && exit 1'
+	@ test -n "$(WHICH_COMPOSE)" || sh -c 'echo "No compose binary" && exit 1' 
+	@ test -n "$(WHICH_PY3)" || sh -c 'echo "No python3 binary" && exit 1'
+	@ test -n "$(WHICH_VENV)" || sh -c 'echo "No virtualenv binary" && exit 1'
