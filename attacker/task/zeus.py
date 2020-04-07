@@ -10,7 +10,7 @@ class Behavior(TaskSet):
             pass
 
         # Home
-        for i in range(len(STATIC_DATA["home"])):
+        for i in range(len_data):
             self.client.get(STATIC_DATA["home"][i])
     
     @task(1)
@@ -20,7 +20,7 @@ class Behavior(TaskSet):
             pass
 
         # Search
-        for i in range(len(STATIC_DATA["search"])):
+        for i in range(len_data):
             self.client.get(STATIC_DATA["search"][i])
     
     @task(1)
@@ -30,7 +30,7 @@ class Behavior(TaskSet):
             pass
 
         # Hot
-        for i in range(len(STATIC_DATA["hot"])):
+        for i in range(len_data):
             self.client.get(STATIC_DATA["hot"][i])
 
     @task(1)
@@ -40,7 +40,7 @@ class Behavior(TaskSet):
             pass
 
         # Membership
-        for i in range(len(STATIC_DATA["membership"])):
+        for i in range(len_data):
             self.client.get(STATIC_DATA["membership"][i])
 
     @task(1)
@@ -50,7 +50,7 @@ class Behavior(TaskSet):
             pass
 
         # Shop
-        for i in range(len(STATIC_DATA["shop"])):
+        for i in range(len_data):
             self.client.get(STATIC_DATA["shop"][i])
 
     @task(1)
@@ -60,7 +60,7 @@ class Behavior(TaskSet):
             pass
 
         # PDP
-        for i in range(len(STATIC_DATA["PDP"])):
+        for i in range(len_data):
             self.client.get(STATIC_DATA["PDP"][i])
     
     @task(1)
@@ -70,5 +70,5 @@ class Behavior(TaskSet):
             pass
 
         # else
-        for i in range(len(STATIC_DATA["else"])):
+        for i in range(len_data):
             self.client.get(STATIC_DATA["else"][i])
