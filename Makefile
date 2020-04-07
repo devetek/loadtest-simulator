@@ -1,3 +1,5 @@
+SERVICE :=atreus
+
 .PHONY: build-deploy
 build-deploy: .validator
 	@ docker build -f nginx/Dockerfile -t prakasa1904/nginx-service-export .
@@ -5,8 +7,13 @@ build-deploy: .validator
 
 .PHONY: run-dev
 run-dev: .validator
+	@ ./generator/main.sh $(SERVICE)
 	@ docker-compose down --remove-orphans
 	@ docker-compose up -d
+
+.PHONY: show-services
+show-services: .validator
+	@ docker-compose ps --all
 
 .PHONY: show-log
 show-log: .validator
@@ -29,8 +36,10 @@ prepare-attack: .validator
 
 .PHONY: attack-me
 attack-me: .validator
+	# locust --host=http://localhost --locustfile attacker/main.py $(SERVICE);
 	@ python3 -m venv python_modules
 	( \
+		export SERVICE=$(SERVICE); \
 		source python_modules/bin/activate; \
 		locust --host=http://localhost --locustfile attacker/main.py; \
 	)

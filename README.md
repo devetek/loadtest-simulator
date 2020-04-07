@@ -1,9 +1,14 @@
 # How To Use
 
+### How To Develop Your Own
+
+Create file under `attacker/task`, for example `zes.py` or `atreus.py`. Then create your own data from `attacker/data`, on this path also create your own data, for example `atreus.py`. After 2 file created, then edit file task you create previously, then import your data. And then follow this step below to.
+
 ### Running All Requirement
 
 ```sh
-make run-dev
+make run-dev SERVICE=zeus
+make run-dev SERVICE=atreus
 ```
 
 After execute command above you will have port open in `9090`, `9100`, `9093`, `8080`, `3000`, `80`, `4040`. So make sure that, the port does not open before this service up. And oh, I think you want to know, why we need open too much port. It will be amazing to have all of those service, trust me!.

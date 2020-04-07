@@ -96,6 +96,8 @@ services:
       - back-tier
       - front-tier
     volumes:
+      - ./nginx/service:/code
+      - ./nginx/access-log-exporter/bin:/code/bin
       - ./nginx/access-log-exporter/lite-zeus.yml:/code/lite-zeus.yml
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf

@@ -88,8 +88,11 @@ namespaces:
     - regexp: "^/([a-zA-Z0-9-]+)/(preorder|cashback|discount|warehouse|freereturns|sold)(/page/[0-9]+)?/?$"
       replacement: "/shop-page"
     # PDP
-    - regexp: "^/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+)?$"
+    - regexp: "^/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+)([?/].*)?$"
       replacement: "/shop-page/product-detail"
+    # Dynamic
+    - regexp: "^/([^\\d\\?/]+).*"
+      replacement: "/$1"
     # ALL
     - regexp: "/.*"
-      replacement: "/rps"
+      replacement: "/$1"
