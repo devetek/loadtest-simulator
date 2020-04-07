@@ -1,8 +1,8 @@
 STATIC_DATA = {
-    "home": [
+    "membership": [
         "/membership/shop/detail/367",
-        "/membership/shop/detail/367",
-        "/membership/shop/detail/367",
+        "/membership/shop/detail/119",
+        "/membership/shop/detail/302",
         "/membership",
         "/membership",
     ],
