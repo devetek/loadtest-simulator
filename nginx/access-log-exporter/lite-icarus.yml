@@ -1,0 +1,65 @@
+listen:
+  port: 4040
+  address: "0.0.0.0"
+
+consul:
+  enable: false
+
+namespaces:
+- name: "lite_icarus"
+  format: '$remote_addr - - [$time_local] "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent"'
+  source_files:
+    - /var/log/nginx/access.log
+  relabel_configs:
+  - target_label: request_uri
+    from: request
+    split: 2
+    matches:
+    # Home
+    - regexp: "^/home(/)?$"
+      replacement: "/home"
+    # Broadcast
+    - regexp: "^/broadcast(/)?$"
+    replacement: "/broadcast"
+    # Buat Surat Jalan
+    - regexp: "^/buat-surat-jalan(/)?$"
+      replacement: "/buat-surat-jalan"
+    # Dekorasi Toko
+    - regexp: "^/dekorasi-toko(/)?$"
+      replacement: "/dekorasi-toko"
+    # Edit Surat Jalan
+    - regexp: "^/edit-surat-jalan(/)?$"
+      replacement: "/edit-surat-jalan"
+    # Manage Campaign List
+    - regexp: "^/manage-campaign(/)?$"
+      replacement: "/manage-campaign"
+    # Manage My Campaign List
+    - regexp: "^/manage-campaign/my-campaign(/)?$"
+      replacement: "/manage-campaign/my-campaign"
+    # Manage Campaign Detail
+    - regexp: "^/manage-campaign(/.*)"
+      replacement: "/manage-campaign/campaign-slug"
+    # Manage Product
+    - regexp: "^/manage-product(/)?$"
+      replacement: "/manage-product"
+    # Seller Order Management
+    - regexp: "^/myshop_order(/)?$"
+      replacement: "/myshop_order"
+    # Produk Tokocabang
+    - regexp: "^/produk-toko-cabang(/)?$"
+      replacement: "/produk-toko-cabang"
+    # Promo
+    - regexp: "^/promo(/)?$"
+      replacement: "/promo"
+    # Statistic Overview
+    - regexp: "^/statistic/overview(/)?$"
+      replacement: "/statistic/overview"
+    # Surat Jalan
+    - regexp: "^/surat-jalan(/)?$"
+      replacement: "/surat-jalan"
+    # Tokomember Analytic
+    - regexp: "^/tokomember-analytic(/)?$"
+      replacement: "/tokomember-analytic"
+    # ALL
+    - regexp: "/.*"
+      replacement: "/$1"
