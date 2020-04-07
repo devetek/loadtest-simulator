@@ -85,7 +85,7 @@ namespaces:
     - regexp: "^/([a-zA-Z0-9-]+)/note(/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+))?/?$"
       replacement: "/shop-page"
     # Shop Other Module
-    - regexp: "^/([a-zA-Z0-9-]+)/(preorder|cashback|discount|warehouse|freereturns|sold)(/page/[0-9]+)?/?$"
+    - regexp: "^/([a-zA-Z0-9-]+)/(sold|preorder|cashback|discount|warehouse|freereturns|sold)(/page/[0-9]+)?/?$"
       replacement: "/shop-page"
     # PDP
     - regexp: "^/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+)([?/].*)?$"

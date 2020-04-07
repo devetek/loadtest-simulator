@@ -3,8 +3,8 @@
 SERVICE=$1
 
 pre_requirement() {
-    # Generate background process
-    nginx/process/supervisor.template ${SERVICE} > nginx/process/supervisor.conf
+    # Generate up access log
+    cp -rf nginx/access-log-exporter/lite-${SERVICE}.yml nginx/access-log-exporter/lite-up.yml
 }
 
 pre_requirement
