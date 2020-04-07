@@ -1,5 +1,13 @@
 # How To Use
 
+### Before start
+
+For mac OS, please install python3, virtualenv, docker, docker-compose. You can follow link bellow before start:
+- [python3 and virtualenv](https://gist.github.com/pandafulmanda/730a9355e088a9970b18275cb9eadef3)
+- [Docker](https://docs.docker.com/docker-for-mac/install/)
+- [Docker-Compose](https://docs.docker.com/compose/install/)
+
+
 ### How To Develop Your Own
 
 Create file under `attacker/task`, for example `zes.py` or `atreus.py`. Then create your own data from `attacker/data`, on this path also create your own data, for example `atreus.py`. After 2 file created, then edit file task you create previously, then import your data.
