@@ -21,15 +21,12 @@ namespaces:
     # Home with args
     - regexp: "^/([?].*)$"
       replacement: "/"
-    # Hot List
+    # Hot
     - regexp: "^/hot([?/].*)?$"
       replacement: "/hot"
-    # Category List
-    - regexp: "^/p(/)?$"
+    # Category
+    - regexp: "^/p([?/].*)?$"
       replacement: "/p"
-    # Category detail
-    - regexp: "^/p(/.*)"
-      replacement: "/p/detail-category"
     # Official Store Home
     - regexp: "^/official-store([?/].*)?$"
       replacement: "/official-store"

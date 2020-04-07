@@ -1,5 +1,6 @@
 STATIC_DATA = {
     "home": [
+        "/"
         "/?c=8879409327&gclid=CjwKCAjwvZv0BRA8EiwAD9T2VV8JedgNkFQXROzfXUyvtb0zqBW0kL-2AJOAhNd1DHvYaheg-J3bOhoCQ5UQAvD_BwE&gclsrc=aw.ds",
         "/?%243p=a_performance_horizon&%24affiliate_url=https%3A%2F%2Fprf.hn%2Fclick%2Fcamref%3A1011l5eHY%2Fpubref%3Add2c19409dae0e7d82a5936fc4a11014_1585899057_2106_4308_0E7740E0-757D-11EA-8060-"
     ],
@@ -47,7 +48,8 @@ STATIC_DATA = {
         "/ilmukomputer/sold?perpage=20&csrf_token=undefined",
     ],
     "PDP": [
-        "/terpusat/terpusat-product"
+        "/pasangpancing/flash-sale-baterai-redmi-note-1-3g-4g-batre-xiaomi-bm42-battery-or?trkid=f%3DCa0000L000P0W0S0Sh%2CCo0Po0Fr0Cb0_src%3Dsearch_page%3D34_ob%3D23_q%3Dxiaomi+note+3g+4g_po%3D23_catid%3D3098",
+        "/tokohilyana/panci-grill-maspion-alat-pemanggang-serbaguna-diameter-33-cm-free?trkid=f%3DCa951L000P1W0S0Sh%2CCo0Po0Fr0Cb0_src%3Dhot-product_page%3D7_ob%3D24_q%3Dalat+pemanggang+maspion_po%3D6_catid%3D951&lt=hot%2Falat-pemanggang-maspion%20-%20product%20366"
     ],
     "else": [
         "/pdgkomputer%2F1stplayer-gaming-psu-fire-dancing-ps-250fd-peak-power-400w",
