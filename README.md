@@ -20,7 +20,8 @@ Remember that, all of the port can be open in `localhost`, for example [Grafana]
 
 ```sh
 make prepare-attack
-make attack-me
+make attack-me SERVICE=atreus
+make attack-me SERVICE=zeus
 ```
 
 This is the cool stuff, attacker is, the tools to help you make a load test to the service and make the grafana dashboard looks alive. After execute command above, you'll be have awesome locust dashboard under `http://*:8089`. Open the [locust dashboard](http://localhost:8089) and input some data to make load test to the service.
