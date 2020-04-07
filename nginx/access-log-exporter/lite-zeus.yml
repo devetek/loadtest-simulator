@@ -22,11 +22,8 @@ namespaces:
     - regexp: "^/([?].*)$"
       replacement: "/"
     # Hot List
-    - regexp: "^/hot(/)?$"
+    - regexp: "^/hot([?/].*)?$"
       replacement: "/hot"
-    # Hotlist Detail
-    - regexp: "^/hot(/.*)"
-      replacement: "/hot/hot-detail"
     # Category List
     - regexp: "^/p(/)?$"
       replacement: "/p"
@@ -34,7 +31,7 @@ namespaces:
     - regexp: "^/p(/.*)"
       replacement: "/p/detail-category"
     # Official Store Home
-    - regexp: "^/official-store([?/])?$"
+    - regexp: "^/official-store([?/].*)?$"
       replacement: "/official-store"
     # Rekomendasi All Path
     - regexp: "^/rekomendasi([?/].*)?$"
@@ -96,9 +93,6 @@ namespaces:
     # PDP
     - regexp: "^/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+)([?/].*)?$"
       replacement: "/shop-page/product-detail"
-    # Dynamic
-    - regexp: "^/([^\\d\\?/]+).*"
-      replacement: "/$1"
-    # ALL
+    # Unknown
     - regexp: "/.*"
-      replacement: "/$1"
+      replacement: "/unknown"
