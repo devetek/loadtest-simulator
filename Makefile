@@ -1,4 +1,4 @@
-SERVICE :=atreus
+SERVICE :=zeus
 
 .PHONY: build-deploy
 build-deploy: .validator
