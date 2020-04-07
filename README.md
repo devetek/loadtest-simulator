@@ -1,6 +1,6 @@
 # How To Use
 
-### Before start
+### Before Start
 
 For mac OS, please install python3, virtualenv, docker, docker-compose. You can follow link bellow before start:
 - [python3 and virtualenv](https://gist.github.com/pandafulmanda/730a9355e088a9970b18275cb9eadef3)
