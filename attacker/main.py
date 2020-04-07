@@ -1,4 +1,3 @@
-from time import sleep
 from locust import HttpLocust, between
 import os
 import task

@@ -18,6 +18,9 @@ namespaces:
     # Home
     - regexp: "^/?$"
       replacement: "/"
+    # Home with args
+    - regexp: "^/([?].*)$"
+      replacement: "/"
     # Hot List
     - regexp: "^/hot(/)?$"
       replacement: "/hot"
@@ -85,7 +88,10 @@ namespaces:
     - regexp: "^/([a-zA-Z0-9-]+)/note(/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+))?/?$"
       replacement: "/shop-page"
     # Shop Other Module
-    - regexp: "^/([a-zA-Z0-9-]+)/(sold|preorder|cashback|discount|warehouse|freereturns|sold)(/page/[0-9]+)?/?$"
+    - regexp: "^/([a-zA-Z0-9-]+)/(preorder|cashback|discount|warehouse|freereturns|sold)([?/].*)?$"
+      replacement: "/shop-page"
+    # Shop Other Module With Page
+    - regexp: "^/([a-zA-Z0-9-]+)/(preorder|cashback|discount|warehouse|freereturns|sold)(/page/[0-9]+)?/?$"
       replacement: "/shop-page"
     # PDP
     - regexp: "^/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+)([?/].*)?$"
