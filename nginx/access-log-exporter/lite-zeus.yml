@@ -21,6 +21,12 @@ namespaces:
     # Home with args
     - regexp: "^/([?].*)$"
       replacement: "/"
+    # Shell
+    - regexp: "^/sw-shell.zeus.html([?].*)?$"
+      replacement: "/sw-shell.zeus.html"
+    # Service Worker
+    - regexp: "^/service-worker.js([?].*)?$"
+      replacement: "/service-worker.js"
     # Hot
     - regexp: "^/hot([?/].*)?$"
       replacement: "/hot"
