@@ -1,0 +1,47 @@
+listen:
+  port: 4040
+  address: "0.0.0.0"
+  
+consul:
+  enable: false
+  
+namespaces:
+- name: "lite_midas"
+  format: '$remote_addr - - [$time_local] "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent"'
+  source_files:
+    - /var/log/nginx/access.log
+  relabel_configs:
+  - target_label: request_uri
+    from: request
+    split: 2
+    matches:
+    # Manage Recommendation
+    - regexp: "^/v2/manage/recommendation([?/].*)?$"
+      replacement: "/manage/recommendation"
+    # Manage Product Create
+    - regexp: "^/v2/manage/product/create([?/].*)?$"
+      replacement: "/manage/product/create"
+    # Manage Auto Product Create
+    - regexp: "^/v2/manage/auto/product/create([?/].*)?$"
+      replacement: "/manage/auto/product/create"
+    # Manage Google Create
+    - regexp: "^/v2/manage/google/create([?/].*)?$"
+      replacement: "/manage/google/create"
+    # Manage Onboarding
+    - regexp: "^/v2/manage/onboarding([?/].*)?$"
+      replacement: "/manage/onboarding"
+    # Manage Headline Create
+    - regexp: "^/v2/manage/headline/create([?/].*)?$"
+      replacement: "/manage/headline/create"
+    # Creadits Claim Empty
+    - regexp: "^/v2/credits/claim/empty([?/].*)?$"
+      replacement: "/credits/claim/empty"
+    # Creadits Claim
+    - regexp: "^/v2/credits/claim([?/].*)?$"
+      replacement: "/credits/claim"
+    # Manage Error
+    - regexp: "^/v2/manage/error([?/].*)?$"
+      replacement: "/manage/error"
+    # AMP Unknown
+    - regexp: "^/.*"
+      replacement: "/unknown"
