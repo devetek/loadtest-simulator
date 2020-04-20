@@ -5,6 +5,7 @@ WORKDIR /code
 # Service requirement
 COPY nginx/service/requirements.txt .
 COPY nginx/service/main.py .
+COPY nginx/version.md .
 COPY nginx/process/supervisor.conf /etc/supervisor.conf
 
 # Nginx requirement

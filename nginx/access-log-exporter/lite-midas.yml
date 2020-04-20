@@ -42,6 +42,6 @@ namespaces:
     # Manage Error
     - regexp: "^/v2/manage/error([?/].*)?$"
       replacement: "/manage/error"
-    # AMP Unknown
+    # Unknown
     - regexp: "^/.*"
       replacement: "/unknown"
