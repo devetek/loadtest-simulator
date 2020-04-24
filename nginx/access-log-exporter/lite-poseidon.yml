@@ -19,13 +19,13 @@ namespaces:
     - regexp: "^/p([?/].*)?$"
       replacement: "/discovery-intermediary"
     # Discovery Jasa
-    - regexp: "^/jasa/(.*)/?$"
+    - regexp: "^/jasa([?/].*)?$"
       replacement: "/discovery-jasa"
     # Discovery Tukar Tambah
-    - regexp: "^/tukar-tambah(.*)?$"
+    - regexp: "^/tukar-tambah([?/].*)?$"
       replacement: "/discovery-tukar-tambah"
     # All Discovery pages
-    - regexp: "^/discovery/(.*)/?$"
+    - regexp: "^/discovery([?/].*)?$"
       replacement: "/discovery"
     # Unknown
     - regexp: "^/.*"
