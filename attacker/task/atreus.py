@@ -104,6 +104,46 @@ class Behavior(TaskSet):
             self.client.get(STATIC_DATA["aftersq"][i])
 
     @task(1)
+    def broadcastchat(self):
+        len_data = len(STATIC_DATA["broadcastchat"])
+        if len_data == 0:
+            pass
+
+        # Home
+        for i in range(len_data):
+            self.client.get(STATIC_DATA["broadcastchat"][i])
+
+    @task(1)
+    def cart(self):
+        len_data = len(STATIC_DATA["cart"])
+        if len_data == 0:
+            pass
+
+        # Home
+        for i in range(len_data):
+            self.client.get(STATIC_DATA["cart"][i])
+
+    @task(1)
+    def belilangsung(self):
+        len_data = len(STATIC_DATA["belilangsung"])
+        if len_data == 0:
+            pass
+
+        # Home
+        for i in range(len_data):
+            self.client.get(STATIC_DATA["belilangsung"][i])
+
+    @task(1)
+    def catalog(self):
+        len_data = len(STATIC_DATA["catalog"])
+        if len_data == 0:
+            pass
+
+        # Home
+        for i in range(len_data):
+            self.client.get(STATIC_DATA["catalog"][i])
+
+    @task(1)
     def pdp(self):
         len_data = len(STATIC_DATA["PDP"])
         if len_data == 0:

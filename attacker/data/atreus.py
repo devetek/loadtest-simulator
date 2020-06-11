@@ -25,6 +25,18 @@ STATIC_DATA = {
     "aftersq": [
         "/after_sq"
     ],
+    "broadcastchat": [
+        "/broadcast-chat"
+    ],
+    "cart": [
+        "/cart"
+    ],
+    "belilangsung": [
+        "/beli-langsung"
+    ],
+    "catalog": [
+        "/catalog/1/1"
+    ],
     "content": [
         "/content/people/1",
         "/content/explore"

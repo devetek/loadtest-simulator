@@ -54,6 +54,18 @@ namespaces:
     # AfterSQ
     - regexp: "^/after_sq([?/].*)?$"
       replacement: "/after_sq"
+    # BroadcastChat
+    - regexp: "^/broadcast-chat([?/].*)?$"
+      replacement: "/broadcast-chat"
+    # Cart
+    - regexp: "^/cart([?/].*)?$"
+      replacement: "/cart"
+    # BeliLangsung
+    - regexp: "^/beli-langsung([?/].*)?$"
+      replacement: "/beli-langsung"
+    # Catalog
+    - regexp: "^/catalog([?/].*)?$"
+      replacement: "/catalog"
     # PDP
     - regexp: "^/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+)([?/].*)?$"
       replacement: "/shop-page/product-detail"
