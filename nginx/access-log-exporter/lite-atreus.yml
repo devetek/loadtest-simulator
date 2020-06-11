@@ -42,6 +42,18 @@ namespaces:
     # Notifcenter
     - regexp: "^/notif-center([?/].*)?$"
       replacement: "/notif-center"
+    # Action
+    - regexp: "^/action([?/].*)?$"
+      replacement: "/action"
+    # Onboard
+    - regexp: "^/onboard([?/].*)?$"
+      replacement: "/onboard"
+    # Appcheck
+    - regexp: "^/appcheck([?/].*)?$"
+      replacement: "/appcheck"
+    # AfterSQ
+    - regexp: "^/after_sq([?/].*)?$"
+      replacement: "/after_sq"
     # PDP
     - regexp: "^/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+)([?/].*)?$"
       replacement: "/shop-page/product-detail"

@@ -62,6 +62,46 @@ class Behavior(TaskSet):
         # Home
         for i in range(len_data):
             self.client.get(STATIC_DATA["myorder"][i])
+    
+    @task(1)
+    def action(self):
+        len_data = len(STATIC_DATA["action"])
+        if len_data == 0:
+            pass
+
+        # Home
+        for i in range(len_data):
+            self.client.get(STATIC_DATA["action"][i])
+
+    @task(1)
+    def onboard(self):
+        len_data = len(STATIC_DATA["onboard"])
+        if len_data == 0:
+            pass
+
+        # Home
+        for i in range(len_data):
+            self.client.get(STATIC_DATA["onboard"][i])
+
+    @task(1)
+    def appcheck(self):
+        len_data = len(STATIC_DATA["appcheck"])
+        if len_data == 0:
+            pass
+
+        # Home
+        for i in range(len_data):
+            self.client.get(STATIC_DATA["appcheck"][i])
+
+    @task(1)
+    def aftersq(self):
+        len_data = len(STATIC_DATA["aftersq"])
+        if len_data == 0:
+            pass
+
+        # Home
+        for i in range(len_data):
+            self.client.get(STATIC_DATA["aftersq"][i])
 
     @task(1)
     def pdp(self):

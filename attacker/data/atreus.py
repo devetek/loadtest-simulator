@@ -13,6 +13,18 @@ STATIC_DATA = {
     "p": [
         "/p"
     ],
+    "action": [
+        "/action"
+    ],
+    "onboard": [
+        "/onboard"
+    ],
+    "appcheck": [
+        "/appcheck"
+    ],
+    "aftersq": [
+        "/after_sq"
+    ],
     "content": [
         "/content/people/1",
         "/content/explore"
