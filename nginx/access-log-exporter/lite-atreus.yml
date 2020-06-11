@@ -22,11 +22,26 @@ namespaces:
     - regexp: "^/([?].*)$"
       replacement: "/"
     # Shell
-    - regexp: "^/sw-shell.zeus.html([?].*)?$"
-      replacement: "/sw-shell.zeus.html"
+    - regexp: "^/sw-shell.atreus.html([?].*)?$"
+      replacement: "/sw-shell.atreus.html"
     # Service Worker
     - regexp: "^/service-worker.js([?].*)?$"
       replacement: "/service-worker.js"
+    # Hot
+    - regexp: "^/hot([?/].*)?$"
+      replacement: "/hot"
+    # Category
+    - regexp: "^/p([?/].*)?$"
+      replacement: "/p"
+    # Content
+    - regexp: "^/content([?/].*)?$"
+      replacement: "/content"
+    # Myorder
+    - regexp: "^/myorder([?/].*)?$"
+      replacement: "/myorder"
+    # Notifcenter
+    - regexp: "^/notif-center([?/].*)?$"
+      replacement: "/notif-center"
     # PDP
     - regexp: "^/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+)([?/].*)?$"
       replacement: "/shop-page/product-detail"

@@ -14,6 +14,56 @@ class Behavior(TaskSet):
             self.client.get(STATIC_DATA["home"][i])
 
     @task(1)
+    def hot(self):
+        len_data = len(STATIC_DATA["hot"])
+        if len_data == 0:
+            pass
+
+        # hot
+        for i in range(len_data):
+            self.client.get(STATIC_DATA["hot"][i])
+
+    @task(1)
+    def p(self):
+        len_data = len(STATIC_DATA["p"])
+        if len_data == 0:
+            pass
+
+        # Home
+        for i in range(len_data):
+            self.client.get(STATIC_DATA["p"][i])
+
+    @task(1)
+    def notifcenter(self):
+        len_data = len(STATIC_DATA["notif-center"])
+        if len_data == 0:
+            pass
+
+        # Home
+        for i in range(len_data):
+            self.client.get(STATIC_DATA["notif-center"][i])
+
+    @task(1)
+    def content(self):
+        len_data = len(STATIC_DATA["content"])
+        if len_data == 0:
+            pass
+
+        # Home
+        for i in range(len_data):
+            self.client.get(STATIC_DATA["content"][i])
+
+    @task(1)
+    def myorder(self):
+        len_data = len(STATIC_DATA["myorder"])
+        if len_data == 0:
+            pass
+
+        # Home
+        for i in range(len_data):
+            self.client.get(STATIC_DATA["myorder"][i])
+
+    @task(1)
     def pdp(self):
         len_data = len(STATIC_DATA["PDP"])
         if len_data == 0:
