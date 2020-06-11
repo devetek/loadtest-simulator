@@ -1,8 +1,8 @@
-from locust import HttpLocust, between
+from locust import HttpUser, between
 import os
 import task
  
-class WebsiteUser(HttpLocust):
+class WebsiteUser(HttpUser):
     service = 'zeus'
 
     if os.environ['SERVICE'] is not None:
@@ -11,5 +11,6 @@ class WebsiteUser(HttpLocust):
 
     get_task = getattr(task, service)
 
-    task_set = get_task.Behavior
+    # task_set = get_task.Behavior
+    tasks = [get_task.Behavior]
     wait_time = between(5, 15)

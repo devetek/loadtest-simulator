@@ -15,6 +15,21 @@ namespaces:
     from: request
     split: 2
     matches:
-    # ALL
+    # Home
+    - regexp: "^/?$"
+      replacement: "/"
+    # Home with args
+    - regexp: "^/([?].*)$"
+      replacement: "/"
+    # Shell
+    - regexp: "^/sw-shell.zeus.html([?].*)?$"
+      replacement: "/sw-shell.zeus.html"
+    # Service Worker
+    - regexp: "^/service-worker.js([?].*)?$"
+      replacement: "/service-worker.js"
+    # PDP
+    - regexp: "^/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+)([?/].*)?$"
+      replacement: "/shop-page/product-detail"
+    # Unknown
     - regexp: "/.*"
-    replacement: "/$1"
+      replacement: "/unknown"
