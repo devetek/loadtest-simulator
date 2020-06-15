@@ -81,6 +81,18 @@ namespaces:
     # Feed
     - regexp: "^/feed([?/].*)?$"
       replacement: "/feed"
+    # Shop
+    - regexp: "^/([a-zA-Z0-9-]+)(/)?$"
+      replacement: "/shop-page"
+    # Shop Review
+    - regexp: "^/([a-zA-Z0-9-]+)/(review|talk)(/page/([0-9]+))?/?$"
+      replacement: "/shop-page"
+    # Shop Note
+    - regexp: "^/([a-zA-Z0-9-]+)/note(/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+))?/?$"
+      replacement: "/shop-page"
+    # Shop Other Module
+    - regexp: "^/([a-zA-Z0-9-]+)/(info|etalase|voucher|rekomendasi-laptop|home|product|feed)([?/].*)?$"
+      replacement: "/shop-page"
     # PDP
     - regexp: "^/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+)([?/].*)?$"
       replacement: "/shop-page/product-detail"

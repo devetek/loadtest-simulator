@@ -189,6 +189,15 @@ class Behavior(TaskSet):
             self.client.get(STATIC_DATA["feed"][i])
 
     @task(1)
+    def shop(self):
+        len_data = len(STATIC_DATA["shop"])
+        if len_data == 0:
+            pass
+
+        for i in range(len_data):
+            self.client.get(STATIC_DATA["shop"][i])
+
+    @task(1)
     def pdp(self):
         len_data = len(STATIC_DATA["PDP"])
         if len_data == 0:

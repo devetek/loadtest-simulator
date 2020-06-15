@@ -63,6 +63,18 @@ STATIC_DATA = {
     "notif-center": [
         "/notif-center"
     ],
+    "shop": [
+        "/craftsebook/sold?perpage=20&csrf_token=undefined",
+        "/kimia-1/sold?sort=7",
+        "/kimia-1/info",
+        "/kimia-1/etalase",
+        "/kimia-1/voucher",
+        "/kimia-1/rekomendasi-laptop",
+        "/kimia-1/home",
+        "/kimia-1/product",
+        "/kimia-1/feed",
+        "/ilmukomputer/sold?perpage=20&csrf_token=undefined",
+    ],
     "PDP": [
         "/pasangpancing/flash-sale-baterai-redmi-note-1-3g-4g-batre-xiaomi-bm42-battery-or",
         "/tokohilyana/panci-grill-maspion-alat-pemanggang-serbaguna-diameter-33-cm-free"
