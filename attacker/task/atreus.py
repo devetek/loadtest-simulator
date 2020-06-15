@@ -144,6 +144,51 @@ class Behavior(TaskSet):
             self.client.get(STATIC_DATA["catalog"][i])
 
     @task(1)
+    def deposit(self):
+        len_data = len(STATIC_DATA["deposit"])
+        if len_data == 0:
+            pass
+
+        for i in range(len_data):
+            self.client.get(STATIC_DATA["deposit"][i])
+
+    @task(1)
+    def epharmacy(self):
+        len_data = len(STATIC_DATA["epharmacy"])
+        if len_data == 0:
+            pass
+
+        for i in range(len_data):
+            self.client.get(STATIC_DATA["epharmacy"][i])
+
+    @task(1)
+    def error(self):
+        len_data = len(STATIC_DATA["error"])
+        if len_data == 0:
+            pass
+
+        for i in range(len_data):
+            self.client.get(STATIC_DATA["error"][i])
+
+    @task(1)
+    def favorite(self):
+        len_data = len(STATIC_DATA["favorite"])
+        if len_data == 0:
+            pass
+
+        for i in range(len_data):
+            self.client.get(STATIC_DATA["favorite"][i])
+
+    @task(1)
+    def feed(self):
+        len_data = len(STATIC_DATA["feed"])
+        if len_data == 0:
+            pass
+
+        for i in range(len_data):
+            self.client.get(STATIC_DATA["feed"][i])
+
+    @task(1)
     def pdp(self):
         len_data = len(STATIC_DATA["PDP"])
         if len_data == 0:

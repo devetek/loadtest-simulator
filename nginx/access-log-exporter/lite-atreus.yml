@@ -66,6 +66,21 @@ namespaces:
     # Catalog
     - regexp: "^/catalog([?/].*)?$"
       replacement: "/catalog"
+    # Deposit
+    - regexp: "^/deposit([?/].*)?$"
+      replacement: "/deposit"
+    # Epharmacy
+    - regexp: "^/e-pharmacy([?/].*)?$"
+      replacement: "/e-pharmacy"
+    # Error
+    - regexp: "^/error([?/].*)?$"
+      replacement: "/error"
+    # Favorite
+    - regexp: "^/favorite([?/].*)?$"
+      replacement: "/favorite"
+    # Feed
+    - regexp: "^/feed([?/].*)?$"
+      replacement: "/feed"
     # PDP
     - regexp: "^/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+)([?/].*)?$"
       replacement: "/shop-page/product-detail"

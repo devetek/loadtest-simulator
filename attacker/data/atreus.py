@@ -37,6 +37,21 @@ STATIC_DATA = {
     "catalog": [
         "/catalog/1/1"
     ],
+    "deposit": [
+        "/deposit"
+    ],
+    "epharmacy": [
+        "/e-pharmacy"
+    ],
+    "error": [
+        "/error"
+    ],
+    "favorite": [
+        "/favorite"
+    ],
+    "feed": [
+        "/feed"
+    ],
     "content": [
         "/content/people/1",
         "/content/explore"
