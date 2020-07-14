@@ -12,6 +12,16 @@ class Behavior(TaskSet):
         # Home
         for i in range(len_data):
             self.client.get(STATIC_DATA["home"][i])
+
+    @task(1)
+    def bebas_ongkir(self):
+        len_data = len(STATIC_DATA["bebas_ongkir"])
+        if len_data == 0:
+            pass
+
+        # Bebas Ongkir
+        for i in range(len_data):
+            self.client.get(STATIC_DATA["bebas_ongkir"][i])
     
     @task(1)
     def broadcast(self):
@@ -22,7 +32,17 @@ class Behavior(TaskSet):
         # Broadcast Chat
         for i in range(len_data):
             self.client.get(STATIC_DATA["broadcast"][i])
-    
+
+    @task(1)
+    def bulk(self):
+        len_data = len(STATIC_DATA["bulk"])
+        if len_data == 0:
+            pass
+
+        # Bulk Add Edit
+        for i in range(len_data):
+            self.client.get(STATIC_DATA["bulk"][i])
+
     @task(1)
     def produk_toko_cabang(self):
         len_data = len(STATIC_DATA["produk_toko_cabang"])
@@ -32,7 +52,67 @@ class Behavior(TaskSet):
         # Tokocabang
         for i in range(len_data):
             self.client.get(STATIC_DATA["produk_toko_cabang"][i])
+
+    @task(1)
+    def review(self):
+        len_data = len(STATIC_DATA["review"])
+        if len_data == 0:
+            pass
+
+        # PDP Review
+        for i in range(len_data):
+            self.client.get(STATIC_DATA["review"][i])
     
+    @task(1)
+    def shop_info(self):
+        len_data = len(STATIC_DATA["shop_info"])
+        if len_data == 0:
+            pass
+
+        # Shop Info
+        for i in range(len_data):
+            self.client.get(STATIC_DATA["shop_info"][i])
+
+    @task(1)
+    def shop_notes(self):
+        len_data = len(STATIC_DATA["shop_notes"])
+        if len_data == 0:
+            pass
+
+        # Shop Notes
+        for i in range(len_data):
+            self.client.get(STATIC_DATA["shop_notes"][i])
+    
+    @task(1)
+    def power_merchant(self):
+        len_data = len(STATIC_DATA["power_merchant"])
+        if len_data == 0:
+            pass
+
+        # Power Merchant
+        for i in range(len_data):
+            self.client.get(STATIC_DATA["power_merchant"][i])
+
+    @task(1)
+    def tokopedia_print(self):
+        len_data = len(STATIC_DATA["tokopedia_print"])
+        if len_data == 0:
+            pass
+
+        # Tokopedia Print
+        for i in range(len_data):
+            self.client.get(STATIC_DATA["tokopedia_print"][i])
+
+    @task(1)
+    def voucher_toko(self):
+        len_data = len(STATIC_DATA["voucher_toko"])
+        if len_data == 0:
+            pass
+
+        # Voucher Toko
+        for i in range(len_data):
+            self.client.get(STATIC_DATA["voucher_toko"][i])
+
     @task(1)
     def dekorasi_toko(self):
         len_data = len(STATIC_DATA["dekorasi_toko"])
@@ -92,7 +172,17 @@ class Behavior(TaskSet):
         # Statistic Overview
         for i in range(len_data):
             self.client.get(STATIC_DATA["statistic_overview"][i])
-    
+
+    @task(1)
+    def statistic_tokocabang(self):
+        len_data = len(STATIC_DATA["statistic_tokocabang"])
+        if len_data == 0:
+            pass
+
+        # Statistic Tokocabang
+        for i in range(len_data):
+            self.client.get(STATIC_DATA["statistic_tokocabang"][i])
+
     @task(1)
     def unknown(self):
         len_data = len(STATIC_DATA["unknown"])
