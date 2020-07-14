@@ -3,11 +3,15 @@ STATIC_DATA = {
         "/home",
         "/home?source=asd",
     ],
+    "bebas_ongkir": [
+        "/bebas-ongkir",
+    ],
     "broadcast": [
         "/broadcast",
     ],
-    "produk_toko_cabang": [
-        "/produk-toko-cabang",
+    "bulk": [
+        "/bulk/add",
+        "/bulk/edit",
     ],
     "dekorasi_toko": [
         "/dekorasi-toko",
@@ -37,11 +41,39 @@ STATIC_DATA = {
         "/myshop_order?status=all_order?search=ibu",
         "/myshop_order?status=confirm_shipping&search=Itaewon+Class+Danbam+Keychain",
     ],
+    "produk_toko_cabang": [
+        "/produk-toko-cabang",
+    ],
     "promo": [
         "/promo",
     ],
+    "review": [
+        "/review",
+        "/review?time=7d&sortby=review_count%20desc",
+        "/review/inbox?rating=all",
+    ],
+    "shop_info": [
+        "/settings/info",
+    ],
+    "shop_notes": [
+        "/settings/notes",
+    ],
+    "power_merchant": [
+        "/settings/power-merchant",
+    ],
     "statistic_overview": [
         "/statistic/overview",
+    ],
+    "statistic_tokocabang": [
+        "/statistic/tokocabang",
+    ],
+    "tokopedia_print": [
+        "/tokopedia-print",
+    ],
+    "voucher_toko": [
+        "/v2/vouchertoko",
+        "/v2/vouchertoko/create",
+        "/v2/vouchertoko/edit/123456",
     ],
     "unknown": [
         "/unknown",

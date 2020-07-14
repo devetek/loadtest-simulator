@@ -18,12 +18,18 @@ namespaces:
     # Home
     - regexp: "^/home([?/].*)?$"
       replacement: "/home"
+    # Bebas Ongkir
+    - regexp: "^/bebas-ongkir([?/].*)?$"
+      replacement: "/bebas-ongkir"
     # Broadcast Chat
     - regexp: "^/broadcast([?/].*)?$"
       replacement: "/broadcast"
     # Buat Surat Jalan
     - regexp: "^/buat-surat-jalan([?/].*)?$"
       replacement: "/buat-surat-jalan"
+    # Bulk Add Edit
+    - regexp: "^/bulk([?/].*)?$"
+      replacement: "/bulk"
     # Dekorasi Toko
     - regexp: "^/dekorasi-toko([?/].*)?$"
       replacement: "/dekorasi-toko"
@@ -45,15 +51,36 @@ namespaces:
     # Promo
     - regexp: "^/promo([?/].*)?$"
       replacement: "/promo"
+    # PDP Review
+    - regexp: "^/review([?/].*)?$"
+      replacement: "/review"
+    # Shop Info
+    - regexp: "^/settings/info([?/].*)?$"
+      replacement: "/settings/info"
+    # Shop Notes
+    - regexp: "^/settings/notes([?/].*)?$"
+      replacement: "/settings/notes"
+    # Power Merchant
+    - regexp: "^/settings/power-merchant([?/].*)?$"
+      replacement: "/settings/power-merchant"
     # Statistic Overview
     - regexp: "^/statistic/overview([?/].*)?$"
       replacement: "/statistic/overview"
+    # Statistic Tokocabang
+    - regexp: "^/statistic/tokocabang([?/].*)?$"
+      replacement: "/statistic/tokocabang"
     # Surat Jalan
     - regexp: "^/surat-jalan([?/].*)?$"
       replacement: "/surat-jalan"
     # Tokomember Analytic
     - regexp: "^/tokomember-analytic([?/].*)?$"
       replacement: "/tokomember-analytic"
+    # Tokopedia Print
+    - regexp: "^/tokopedia-print([?/].*)?$"
+      replacement: "/tokopedia-print"
+    # Voucher Toko
+    - regexp: "^/v2/vouchertoko([?/].*)?$"
+      replacement: "/v2/vouchertoko"
     # Page Not Found
     - regexp: "^/page-not-found([?/].*)?$"
       replacement: "/page-not-found"
