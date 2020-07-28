@@ -1,0 +1,83 @@
+listen:
+  port: 4040
+  address: "0.0.0.0"
+
+consul:
+  enable: false
+
+namespaces:
+- name: "wp_seller"
+  format: '$remote_addr - - [$time_local] "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent"'
+  source_files:
+    - /var/log/nginx/access.log
+  relabel_configs:
+  - target_label: request_uri
+    from: request
+    split: 2
+    matches:
+    # Home
+    - regexp: "^/edu?$"
+      replacement: "/edu"
+    # Home with args
+    - regexp: "^/edu([?].*)$"
+      replacement: "/edu"
+    # Articles
+    - regexp: "^/edu/articles([?/].*)?$"
+      replacement: "/edu/articles"
+    # Admin Main
+    - regexp: "^/edu/wp-admin([?/].*)?$"
+      replacement: "/edu/wp-admin"
+    # Admin Hide
+    - regexp: "^/edu/nest-tkpd([?/].*)?$"
+      replacement: "/edu/nest-tkpd"
+    # Admin Login
+    - regexp: "^/edu/wp-login([?/].*)?$"
+      replacement: "/edu/wp-login"
+    # wp_content
+    - regexp: "^/edu/wp-content([?/].*)?$"
+      replacement: "/edu/wp-content"
+    # wp_includes
+    - regexp: "^/edu/wp-includes([?/].*)?$"
+      replacement: "/edu/wp-includes"
+    # wp_json
+    - regexp: "^/edu/wp-json([?/].*)?$"
+      replacement: "/edu/wp-json"
+    # microsite_event
+    - regexp: "^/edu/event-calendar([?/].*)?$"
+      replacement: "/edu/event-calendar"
+    # microsite_kembangkan_usaha
+    - regexp: "^/edu/tips-kembangkan-usaha([?/].*)?$"
+      replacement: "/edu/tips-kembangkan-usaha"
+    # microsite_mulai_berjualan
+    - regexp: "^/edu/tips-mulai-berjualan([?/].*)?$"
+      replacement: "/edu/tips-mulai-berjualan"
+    # microsite_layanan
+    - regexp: "^/edu/layanan([?/].*)?$"
+      replacement: "/edu/layanan"
+    # microsite_official_store
+    - regexp: "^/edu/official-store([?/].*)?$"
+      replacement: "/edu/official-store"
+    # microsite_order_prioritas
+    - regexp: "^/edu/order-prioritas([?/].*)?$"
+      replacement: "/edu/order-prioritas"
+    # microsite_power_merchant
+    - regexp: "^/edu/power-merchant([?/].*)?$"
+      replacement: "/edu/power-merchant"
+    # microsite_tingkatkan_penjualan
+    - regexp: "^/edu/tips-tingkatkan-penjualan([?/].*)?$"
+      replacement: "/edu/tips-tingkatkan-penjualan"
+    # microsite_topads
+    - regexp: "^/edu/about-topads([?/].*)?$"
+      replacement: "/edu/about-topads"
+    # microsite_topbot
+    - regexp: "^/edu/topbot([?/].*)?$"
+      replacement: "/edu/topbot"
+    # Article Detail
+    - regexp: "^/edu/([a-zA-Z0-9-]+)?$"
+      replacement: "/edu/article-detail"
+    # Article Detail with args
+    - regexp: "^/edu/([a-zA-Z0-9-]+)([?].*)$"
+      replacement: "/edu/article-detail"
+    # Else
+    - regexp: "^/.*"
+      replacement: "/else"
