@@ -349,12 +349,11 @@ namespaces:
     # Unknown
     - regexp: "^/.*"
       replacement: "/unknown"
-
-namespaces:
+   
 - name: "nginx_main_seller"
   format: '$remote_addr - $remote_user [$time_local] "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent"'
   source_files:
-    - /var/log/nginx/seller.access.log
+    - /var/log/nginx/access.log
   relabel_configs:
   - target_label: request_uri
     from: request

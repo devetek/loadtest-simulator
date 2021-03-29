@@ -23,6 +23,10 @@ show-log: .validator
 down-dev: .validator
 	@ docker-compose down --remove-orphans
 
+.PHONY: restart-dev
+restart-dev: .validator
+	@ docker-compose restart $(SERVICE)
+
 .PHONY: prepare-attack
 prepare-attack: .validator
 	@ which pip3 || exit 1
