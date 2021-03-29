@@ -1,0 +1,510 @@
+
+listen:
+  port: 4040
+  address: "0.0.0.0"
+
+consul:
+  enable: false
+
+namespaces:
+- name: "nginx_main"
+  format: '$remote_addr - $remote_user [$time_local] "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent"'
+  source_files:
+    - /var/log/nginx/access.log
+  relabel_configs:
+  - target_label: request_uri
+    from: request
+    split: 2
+    matches:
+    # Home
+    - regexp: "^/?$"
+      replacement: "/"
+    # Home with args
+    - regexp: "^/([?].*)$"
+      replacement: "/"
+    # Robots txt
+    - regexp: "^/robots.txt$"
+      replacement: "/robots.txt"
+    # Shell atreus
+    - regexp: "^/sw-shell.atreus.html([?].*)?$"
+      replacement: "/sw-shell.atreus.html"
+    # Service Worker
+    - regexp: "^/service-worker.js([?].*)?$"
+      replacement: "/service-worker.js"
+    # Myorder
+    - regexp: "^/myorder([?/].*)?$"
+      replacement: "/myorder"
+    # Action
+    - regexp: "^/action([?/].*)?$"
+      replacement: "/action"
+    # Onboard
+    - regexp: "^/onboard([?/].*)?$"
+      replacement: "/onboard"
+    # Appcheck
+    - regexp: "^/appcheck([?/].*)?$"
+      replacement: "/appcheck"
+    # AfterSQ
+    - regexp: "^/after_sq([?/].*)?$"
+      replacement: "/after_sq"
+    # BroadcastChat
+    - regexp: "^/broadcast-chat([?/].*)?$"
+      replacement: "/broadcast-chat"
+    # Cart
+    - regexp: "^/cart([?/].*)?$"
+      replacement: "/cart"
+    # BeliLangsung
+    - regexp: "^/beli-langsung([?/].*)?$"
+      replacement: "/beli-langsung"
+    # Catalog
+    - regexp: "^/catalog([?/].*)?$"
+      replacement: "/catalog"
+    # Deposit
+    - regexp: "^/deposit([?/].*)?$"
+      replacement: "/deposit"
+    # Epharmacy
+    - regexp: "^/e-pharmacy([?/].*)?$"
+      replacement: "/e-pharmacy"
+    # Error
+    - regexp: "^/error([?/].*)?$"
+      replacement: "/error"
+    # Favorite
+    - regexp: "^/favorite([?/].*)?$"
+      replacement: "/favorite"
+    # Feed
+    - regexp: "^/feed([?/].*)?$"
+      replacement: "/feed"
+    # Bebas Ongkir
+    - regexp: "^/bebas-ongkir([?/].*)?$"
+      replacement: "/bebas-ongkir"
+    # WIB Vote
+    - regexp: "^/waktu-indonesia-belanja-vote([?/].*)?$"
+      replacement: "/wib-vote"
+    # beauty awards nov
+    - regexp: "^/tokopedia-beauty-awards-nov([?/].*)?$"
+      replacement: "/beauty-nov"
+    # beauty awards
+    - regexp: "^/tokopedia-beauty-awards([?/].*)?$"
+      replacement: "/tokopedia-beauty-awards"
+    # Rewards Tokopoints
+    - regexp: "^/rewards([?/].*)?$"
+      replacement: "/rewards"
+    # Shell Zeus
+    - regexp: "^/sw-shell.zeus.html([?].*)?$"
+      replacement: "/sw-shell.zeus.html"
+    # Service Worker
+    - regexp: "^/service-worker.js([?].*)?$"
+      replacement: "/service-worker.js"
+    # Official Store Home
+    - regexp: "^/official-store([?/].*)?$"
+      replacement: "/official-store"
+    # Rekomendasi All Path
+    - regexp: "^/rekomendasi([?/].*)?$"
+      replacement: "/rekomendasi"
+    # Search All Path
+    - regexp: "^/search([?/].*)?$"
+      replacement: "/search"
+    # Find All Path
+    - regexp: "^/find([?/].*)?$"
+      replacement: "/find"
+    # Content All Path
+    - regexp: "^/content([?/].*)?$"
+      replacement: "/content"
+    # People All Path
+    - regexp: "^/people([?/].*)?$"
+      replacement: "/people"
+    # Cart All Path
+    - regexp: "^/cart([?/].*)?$"
+      replacement: "/cart"
+    # Notif Center All Path
+    - regexp: "^/notif-center([?/].*)?$"
+      replacement: "/notif-center"
+    # Terms
+    - regexp: "^/terms(/)?$"
+      replacement: "/terms"
+    # Privacy
+    - regexp: "^/privacy(/)?$"
+      replacement: "/privacy"
+    # Help All Path
+    - regexp: "^/help([?/].*)?$"
+      replacement: "/help"
+    # User All Path
+    - regexp: "^/user([?/].*)?$"
+      replacement: "/user"
+    # Membership
+    - regexp: "^/membership([?/].*)?$"
+      replacement: "/membership"
+    # Discovery
+    - regexp: "^/discovery([?/].*)?$"
+      replacement: "/discovery"
+    # Tukar Tambah
+    - regexp: "^/tukar-tambah(/)?$"
+      replacement: "/tukar-tambah"
+    # Shop
+    - regexp: "^/([a-zA-Z0-9-]+)(/)?$"
+      replacement: "/shop-page"
+    # Shop Review
+    - regexp: "^/([a-zA-Z0-9-]+)/(review|talk)(/page/([0-9]+))?/?$"
+      replacement: "/shop-page-review-or-talk"
+    # Shop Note
+    - regexp: "^/([a-zA-Z0-9-]+)/note(/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+))?/?$"
+      replacement: "/shop-page-note"
+    # Shop Other Module
+    - regexp: "^/([a-zA-Z0-9-]+)/(preorder|cashback|discount|warehouse|freereturns|sold)([?/].*)?$"
+      replacement: "/shop-page-module-page"
+    # Shop Other Module With Page
+    - regexp: "^/([a-zA-Z0-9-]+)/(preorder|cashback|discount|warehouse|freereturns|sold)(/page/[0-9]+)?/?$"
+      replacement: "/shop-page-module-non-page"
+    # PDP
+    - regexp: "^/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+)([?/].*)?$"
+      replacement: "/shop-page/product-detail"
+    # Poseidon Start
+    # Discovery intermediary
+    - regexp: "^/p([?/].*)?$"
+      replacement: "/discovery-intermediary"
+    # Discovery Jasa - need confirm the actual path from poseidon
+    - regexp: "^/jasa([?/].*)?$"
+      replacement: "/discovery-jasa"
+    # Discovery Tukar Tambah
+    - regexp: "^/tukar-tambah([?/].*)?$"
+      replacement: "/discovery-tukar-tambah"
+    # Discovery Special Merchandise
+    - regexp: "/special-merchandise([?/].*)?$"
+      replacement: "/discovery-special-merchandise"
+    # All Discovery pages
+    - regexp: "^/discovery([?/].*)?$"
+      replacement: "/discovery"
+    # Poseidon End
+    # Gundala Start
+    # Detail Pengerjaan
+    - regexp: "^/jasa/print/detail-pengerjaan(/)?$"
+      replacement: "/detail-pengerjaan"
+    # Checkout
+    - regexp: "^/jasa/checkout(/)?$"
+      replacement: "/checkout"
+    # Category
+    - regexp: "^/jasa/print/([a-zA-Z0-9-]+)([?/].*)?$"
+      replacement: "/category"
+    # PDP
+    - regexp: "^/jasa/print/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+)([?/].*)?$"
+      replacement: "/category/product-detail"
+    # Gundala End
+    # Artemis Start
+    # Kredivo Landing
+    - regexp: "^/kredivo/([?].*)?$"
+      replacement: "/kredivo"
+    # Kredivo Status
+    - regexp: "^/kredivo/status([?/].*)?$"
+      replacement: "/kredivo/status"
+    # Kredivo Ajukan
+    - regexp: "^/kredivo/ajukan([?/].*)?$"
+      replacement: "/kredivo/ajukan"
+    # Kredivo Limit
+    - regexp: "^/kredivo/limit([?/].*)?$"
+      replacement: "/kredivo/limit"
+    # Kredivo Not Found
+    - regexp: "^/kredivo/404([?/].*)?$"
+      replacement: "/kredivo/not-found"
+    # Kredivo Error
+    - regexp: "^/kredivo/500([?/].*)?$"
+      replacement: "/kredivo/error"
+    # Kartu Kredit Landing
+    - regexp: "^/kartu-kredit/([?].*)?$"
+      replacement: "/kartu-kredit"
+    # Kartu Kredit Promo
+    - regexp: "^/kartu-kredit/promo([?/].*)?$"
+      replacement: "/kartu-kredit/promo"
+    # Kartu Kredit Bandingkan
+    - regexp: "^/kartu-kredit/bandingkan([?/].*)?$"
+      replacement: "/kartu-kredit/bandingkan"
+    # Kartu Kredit Bank
+    - regexp: "^/kartu-kredit/bank([?/].*)?$"
+      replacement: "/kartu-kredit/bank"
+    # Kartu Kredit Criteria
+    - regexp: "^/kartu-kredit/criteria([?/].*)?$"
+      replacement: "/kartu-kredit/criteria"
+    # Kartu Kredit Apply
+    - regexp: "^/kartu-kredit/apply([?/].*)?$"
+      replacement: "/kartu-kredit/apply"
+    # Kartu Kredit Category
+    - regexp: "^/kartu-kredit/c([?/].*)?$"
+      replacement: "/kartu-kredit/c"
+    # Kartu Kredit API
+    - regexp: "^/kartu-kredit/api([?/].*)?$"
+      replacement: "/kartu-kredit/api"
+    # Forms
+    - regexp: "^/ft-forms([?/].*)?$"
+      replacement: "/ft-forms"
+    # Pinjaman Online
+    - regexp: "^/pinjaman-online([?/].*)?$"
+      replacement: "/pinjaman-online"
+    # PM Zero
+    - regexp: "^/power-zero([?/].*)?$"
+      replacement: "/power-zero"
+    # Saldo Prioritas
+    - regexp: "^/saldo-prioritas/([?].*)?$"
+      replacement: "/saldo-prioritas"
+    # Saldo Prioritas Dashboard
+    - regexp: "^/saldo-prioritas/dashboard([?/].*)?$"
+      replacement: "/saldo-prioritas/dashboard"
+    # Reksadana
+    - regexp: "^/reksa-dana([?/].*)?$"
+      replacement: "/reksa-dana"
+    # Claim Insurance
+    - regexp: "^/asuransi/klaim([?/].*)?$"
+      replacement: "/asuransi/klaim"  
+    # Artemis End
+    # Pegasus Start
+    # Kereta Api Home
+    - regexp: "^/kereta-api/?$"
+      replacement: "/kereta-api"
+    # Kerata Api Search
+    - regexp: "^/kereta-api/search([?/].*)?$"
+      replacement: "/kereta-api/search"
+    # Kereta Api Book
+    - regexp: "^/kereta-api/book([?/].*)?$"
+      replacement: "/kereta-api/book"
+    # Kereta Api Summary
+    - regexp: "^/kereta-api/summary([?/].*)?$"
+      replacement: "/kereta-api/summary"
+    # Kereta Api Seats
+    - regexp: "^/kereta-api/seats([?/].*)?$"
+      replacement: "/kereta-api/seats"
+    # Flight Home
+    - regexp: "^/flight/?$"
+      replacement: "/flight"
+    # Flight Search
+    - regexp: "^/flight/search([?/].*)?$"
+      replacement: "/flight/search"
+    # Flight Book
+    - regexp: "^/flight/booking([?/].*)?$"
+      replacement: "/flight/booking"
+    # Hotel Home
+    - regexp: "^/hotel/?$"
+      replacement: "/hotel"
+    # Hotel Search
+    - regexp: "^/hotel([?/].*)/search([?/].*)?"
+      replacement: "/hotel/property-search"
+    # Hotel PDP
+    - regexp: "^/hotel([?/].*)/h([?/].*)?"
+      replacement: "/hotel/property-detail"
+    # Hotel SEO
+    - regexp: "^/hotel/(.*([?/]area/|city/|group/|t/|bintang-)).*?"
+      replacement: "/hotel/seo"
+    # Pegasus End
+    # Firdaus Start
+    # Salam homepage
+    - regexp: "^/salam([?/].*)?$"
+      replacement: "/salam"
+    # Quran all page
+    - regexp: "^/s/quran([?/].*)?$"
+      replacement: "/s/quran"
+    # Zakat 
+    - regexp: "/s/zakat(-maal)?([?/].*)?$"
+      replacement: "/s/zakat"
+    # Jadwal Sholat
+    - regexp: "^/s/jadwal-sholat([?/].*)?$"
+      replacement: "/s/jadwal-sholat"
+    # Firdaus End
+    # Thor Start
+     # AMP Find
+    - regexp: "^/amp/find/([?/].*)?$"
+      replacement: "/amp/find"
+    # AMP Hot
+    - regexp: "^/amp/hot([?/].*)?$"
+      replacement: "/amp/hot"
+    # AMP Category
+    - regexp: "^/amp/p([?/].*)?$"
+      replacement: "/amp/p"
+    # AMP API Add Whitelist
+    - regexp: "^/amp/api/add-wishlist([?/].*)?$"
+      replacement: "/amp/api/add-wishlist"
+    # AMP API Category ID
+    - regexp: "^/amp/api/category([?/].*)?$"
+      replacement: "/amp/api/category"
+    # AMP API Hot Promo
+    - regexp: "^/amp/hot/promo([?/].*)?$"
+      replacement: "/amp/api/hot/promo"
+    # AMP API Login Status
+    - regexp: "^/amp/api/login-status([?/].*)?$"
+      replacement: "/amp/api/login-status"
+    # AMP API Product
+    - regexp: "^/amp/api/product([?/].*)?$"
+      replacement: "/amp/api/product"
+    # AMP API Product Review
+    - regexp: "^/amp/api/product-review([?/].*)?$"
+      replacement: "/amp/api/product-review"
+    # AMP API Product Talk
+    - regexp: "^/amp/api/product-talk([?/].*)?$"
+      replacement: "/amp/api/product-talk"
+    # AMP API Find Real Time Products
+    - regexp: "^/amp/api/find-real-time-products([?/].*)?$"
+      replacement: "/amp/api/find-real-time-products"
+    # AMP PDP
+    - regexp: "^/amp/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+)([?/].*)?$"
+      replacement: "/amp/shop-page/product-detail"
+    # AMP Unknown
+    - regexp: "/amp/(.*)"
+      replacement: "/amp/unknown"
+    # Thor End
+    # Unknown
+    - regexp: "^/.*"
+      replacement: "/unknown"
+
+namespaces:
+- name: "nginx_main_seller"
+  format: '$remote_addr - $remote_user [$time_local] "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent"'
+  source_files:
+    - /var/log/nginx/seller.access.log
+  relabel_configs:
+  - target_label: request_uri
+    from: request
+    split: 2
+    matches:
+    # Home
+    - regexp: "^/home([?/].*)?$"
+      replacement: "/home"
+    # Broadcast Chat
+    - regexp: "^/broadcast([?/].*)?$"
+      replacement: "/broadcast"
+    # Buat Surat Jalan
+    - regexp: "^/buat-surat-jalan([?/].*)?$"
+      replacement: "/buat-surat-jalan"
+    # Dekorasi Toko
+    - regexp: "^/dekorasi-toko([?/].*)?$"
+      replacement: "/dekorasi-toko"
+    # Edit Surat Jalan
+    - regexp: "^/edit-surat-jalan([?/].*)?$"
+      replacement: "/edit-surat-jalan"
+    # Manage Campaign
+    - regexp: "^/manage-campaign([?/].*)?$"
+      replacement: "/manage-campaign"
+    # Manage Product
+    - regexp: "^/manage-product([?/].*)?$"
+      replacement: "/manage-product"
+    # Seller Order Management
+    - regexp: "^/myshop_order([?/].*)?$"
+      replacement: "/myshop_order"
+    # Produk Tokocabang
+    - regexp: "^/produk-toko-cabang([?/].*)?$"
+      replacement: "/produk-toko-cabang"
+    # Promo
+    - regexp: "^/promo([?/].*)?$"
+      replacement: "/promo"
+    # Bebas Ongkir
+    - regexp: "^/bebas-ongkir([?/].*)?$"
+      replacement: "/bebas-ongkir"
+    # Statistic Overview
+    - regexp: "^/statistic/overview([?/].*)?$"
+      replacement: "/statistic/overview"
+    # Surat Jalan
+    - regexp: "^/surat-jalan([?/].*)?$"
+      replacement: "/surat-jalan"
+    # Tokomember Analytic
+    - regexp: "^/tokomember-analytic([?/].*)?$"
+      replacement: "/tokomember-analytic"
+    # Add Product
+    - regexp: "^/add-product([?/].*)?$"
+      replacement: "/add-product"
+    # Edit Product
+    - regexp: "^/edit-product([?/].*)?$"
+      replacement: "/edit-product"
+    # Bulk Edit Product
+    - regexp: "^/bulk/edit([?/].*)?$"
+      replacement: "/bulk/edit"
+    # Add Product
+    - regexp: "^/bulk/add([?/].*)?$"
+      replacement: "/bulk/add"
+    # Chat
+    - regexp: "^/chat([?/].*)?$"
+      replacement: "/chat"
+    # Edu
+    - regexp: "^/edu([?/].*)?$"
+      replacement: "/edu"
+    # Faktur Pajak
+    - regexp: "^/faktur-pajak([?/].*)?$"
+      replacement: "/faktur-pajak"
+    # Discussion
+    - regexp: "^/inbox-talk([?/].*)?$"
+      replacement: "/inbox-talk"
+    # Membership
+    - regexp: "^/membership([?/].*)?$"
+      replacement: "/membership"
+    # Notification Center
+    - regexp: "^/notif-center([?/].*)?$"
+      replacement: "/notif-center"
+    # Edit Discount
+    - regexp: "^/pengaturan-diskon([?/].*)?$"
+      replacement: "/pengaturan-diskon"
+    # Review
+    - regexp: "^/review([?/].*)?$"
+      replacement: "/review"
+    # Special Release
+    - regexp: "^/rilisan-spesial([?/].*)?$"
+      replacement: "/rilisan-spesial"
+    # Address Settings
+    - regexp: "^/settings/address([?/].*)?$"
+      replacement: "/settings/address"
+    # Showcase
+    - regexp: "^/etalase([?/].*)?$"
+      replacement: "/etalase"
+    # Featured Product
+    - regexp: "^/featureprod([?/].*)?$"
+      replacement: "/featureprod"
+    # Shop Info Settings
+    - regexp: "^/settings/info([?/].*)?$"
+      replacement: "/settings/info"
+    # Shop Notes Settings
+    - regexp: "^/settings/notes([?/].*)?$"
+      replacement: "/settings/notes"
+    # Power Merchant Settings
+    - regexp: "^/settings/power-merchant([?/].*)?$"
+      replacement: "/settings/power-merchant"
+    # Shop Services Settings
+    - regexp: "^/settings/services([?/].*)?$"
+      replacement: "/settings/services"
+    # Shop Shipment Settings
+    - regexp: "^/settings/shipment([?/].*)?$"
+      replacement: "/settings/shipment"
+    # Shop Reply Template Settings
+    - regexp: "^/settings/templreplies([?/].*)?$"
+      replacement: "/settings/templreplies"
+    # Shop Admin Settings
+    - regexp: "^/shop/admin([?/].*)?$"
+      replacement: "/shop/admin"
+
+    # Buyer Statistics
+    - regexp: "^/statistic/buyer([?/].*)?$"
+      replacement: "/statistic/buyer"
+    # Live Statistics
+    - regexp: "^/statistic/live([?/].*)?$"
+      replacement: "/statistic/live"
+    # Operational Statistics
+    - regexp: "^/statistic/operational([?/].*)?$"
+      replacement: "/statistic/operational"
+    # Overview Statistics
+    - regexp: "^/statistic/overview([?/].*)?$"
+      replacement: "/statistic/overview"
+    # Product Statistics
+    - regexp: "^/statistic/product([?/].*)?$"
+      replacement: "/statistic/product"
+    # TokoCabang Statistics
+    - regexp: "^/statistic/tokocabang([?/].*)?$"
+      replacement: "/statistic/tokocabang"
+    # Tokopedia Print
+    - regexp: "^/tokopedia-print([?/].*)?$"
+      replacement: "/tokopedia-print"
+    # Upload Surat Jalan
+    - regexp: "^/unggah-surat-jalan([?/].*)?$"
+      replacement: "/unggah-surat-jalan"
+    # Shop Voucher
+    - regexp: "^/v2/vouchertoko([?/].*)?$"
+      replacement: "/v2/vouchertoko"
+    # Page Not Found
+    - regexp: "^/page-not-found([?/].*)?$"
+      replacement: "/page-not-found"
+    # Unknown
+    - regexp: "^/.*"
+      replacement: "/unknown"
+
+ 
+    
