@@ -16,7 +16,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1586273810527,
+  "iteration": 1624445763057,
   "links": [],
   "panels": [
     {
@@ -25,6 +25,12 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -50,9 +56,10 @@
       "linewidth": 1,
       "nullPointMode": "null",
       "options": {
-        "dataLinks": []
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "8.0.3",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -62,9 +69,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(gossinc_http_response_count_total{job=\"acccess-log-exporter\",method=~\"$method\",request_uri=~\"$path\",status=~\"(200|3..)\"}[5m])) by (method, request_uri, status) ",
+          "exemplar": true,
+          "expr": "sum(rate(gossinc_http_response_count_total{job=\"acccess-log-exporter\",method=~\"$method\",request_uri=~\"$path\",status=~\"(200|3..)\"}[5m])) by (method, request_uri, status, referer) ",
           "interval": "",
-          "legendFormat": "",
+          "legendFormat": "{{ referer }}",
           "refId": "A"
         }
       ],
@@ -117,6 +125,12 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -140,9 +154,10 @@
       "linewidth": 1,
       "nullPointMode": "null",
       "options": {
-        "dataLinks": []
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "8.0.3",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -203,7 +218,7 @@
     }
   ],
   "refresh": "5s",
-  "schemaVersion": 22,
+  "schemaVersion": 30,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -216,6 +231,8 @@
             "GET"
           ]
         },
+        "description": null,
+        "error": null,
         "hide": 0,
         "includeAll": true,
         "label": null,
@@ -260,27 +277,33 @@
       {
         "allValue": null,
         "current": {
-          "text": "All",
+          "selected": true,
+          "text": [
+            "All"
+          ],
           "value": [
             "$__all"
           ]
         },
         "datasource": "Prometheus",
         "definition": "label_values(gossinc_http_response_count_total{request_uri!=\"\"}, request_uri)",
+        "description": null,
+        "error": null,
         "hide": 0,
         "includeAll": true,
-        "index": -1,
         "label": null,
         "multi": true,
         "name": "path",
         "options": [],
-        "query": "label_values(gossinc_http_response_count_total{request_uri!=\"\"}, request_uri)",
+        "query": {
+          "query": "label_values(gossinc_http_response_count_total{request_uri!=\"\"}, request_uri)",
+          "refId": "Prometheus-path-Variable-Query"
+        },
         "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",
-        "tags": [],
         "tagsQuery": "",
         "type": "query",
         "useTags": false
@@ -308,8 +331,5 @@
   "timezone": "",
   "title": "RPS Gossinc",
   "uid": "sAgLjOjWy",
-  "variables": {
-    "list": []
-  },
-  "version": 2
+  "version": 26
 }
