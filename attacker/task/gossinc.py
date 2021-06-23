@@ -10,5 +10,4 @@ class Behavior(TaskSet):
             pass
 
         for i in range(len_data):
-            self.client.get(STATIC_DATA["assets"][i])
-
+            self.client.get(STATIC_DATA["assets"][i], headers={"referer":  "https://www.tokopedia.com/payment/withdrawal"})
