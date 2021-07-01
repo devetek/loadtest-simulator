@@ -16,7 +16,7 @@ COPY nginx/nginx.conf /etc/nginx/nginx.conf
 COPY nginx/access-log-exporter .
 
 RUN apk update; \
-  apk add python3 bash curl supervisor; \
+  apk add python3 bash curl supervisor py3-pip; \
   pip3 install --upgrade pip; \
   pip3 install -r requirements.txt; \
   mkdir -p /var/log/supervisor; \
