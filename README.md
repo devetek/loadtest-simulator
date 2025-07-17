@@ -64,7 +64,7 @@ sum(rate(example_http_response_count_total[5m]))
 ### Show Output
 
 #### Locust
-![load-test-locust](docs/assets/load-test-locust.png)
+![load-test-locust](docs/assets/locust-loadtest.png)
 
 #### Grafana
 ![grafana-dashboard](docs/assets/grafana-dashboard.png)
