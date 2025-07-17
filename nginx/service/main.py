@@ -17,7 +17,7 @@ def requests_count():
 @app.route('/<path:path>')
 def catch_all(path):
     count_process()
-    return 'Hi Nakama, welcome to %s' % path
+    return 'Hi world, welcome to %s' % path
 
 if __name__ == "__main__":
   app.run(host='0.0.0.0', port=8080, debug=True)

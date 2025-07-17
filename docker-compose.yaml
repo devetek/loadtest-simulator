@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   prometheus:
-    image: prom/prometheus:v2.1.0
+    image: prom/prometheus:latest
     volumes:
       - ./prometheus/:/etc/prometheus/
       - prometheus_data:/prometheus
@@ -55,7 +55,7 @@ services:
       - '--storage.path=/alertmanager'
 
   cadvisor:
-    image: google/cadvisor
+    image: gcr.io/cadvisor/cadvisor-arm64:v0.52.1
     volumes:
       - /:/rootfs:ro
       - /var/run:/var/run:rw
@@ -97,7 +97,7 @@ services:
       - front-tier
     volumes:
       - ./nginx/service:/code
-      - ./nginx/access-log-exporter/bin:/code/bin
+      - ./nginx/access-log-exporter/bin-arm:/code/bin
       - ./nginx/access-log-exporter/lite-up.yml:/code/lite-up.yml
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf

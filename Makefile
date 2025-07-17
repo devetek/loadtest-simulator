@@ -6,10 +6,20 @@ build-deploy: .validator
 	@ docker push prakasa1904/nginx-service-export
 
 .PHONY: run-dev
-run-dev: .validator
+run-dev-arm: .validator
+	@ rm docker-compose.yaml
+	@ cp docker-compose-arm.yaml docker-compose.yaml
 	@ ./generator/main.sh $(SERVICE)
 	@ docker-compose down --remove-orphans
-	@ docker-compose up -d
+	@ docker-compose up
+
+.PHONY: run-dev
+run-dev-x86: .validator
+	@ rm docker-compose.yaml
+	@ cp docker-compose-x86.yaml docker-compose.yaml
+	@ ./generator/main.sh $(SERVICE)
+	@ docker-compose down --remove-orphans
+	@ docker-compose up
 
 .PHONY: show-services
 show-services: .validator
@@ -18,6 +28,14 @@ show-services: .validator
 .PHONY: show-log
 show-log: .validator
 	@ docker-compose logs -f
+
+.PHONY: enter-app
+enter-app: .validator
+	docker compose exec -it nginx bash
+
+.PHONY: down-dev
+down-dev: .validator
+	@ docker-compose down --remove-orphans
 
 .PHONY: down-dev
 down-dev: .validator
