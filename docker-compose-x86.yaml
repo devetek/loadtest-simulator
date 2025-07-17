@@ -98,7 +98,7 @@ services:
     volumes:
       - ./nginx/service:/code
       - ./nginx/access-log-exporter/bin:/code/bin
-      - ./nginx/access-log-exporter/lite-up.yml:/code/lite-up.yml
+      - ./nginx/access-log-exporter/up.yml:/code/up.yml
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
       - ./nginx/process/supervisor.conf:/etc/supervisor.conf

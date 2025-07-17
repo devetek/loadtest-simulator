@@ -4,4 +4,5 @@ python_modules
 supervisord.log
 supervisord.pid
 lite-up.yml
+up.yml
 # docker-compose.yaml

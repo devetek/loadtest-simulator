@@ -6,7 +6,7 @@ consul:
   enable: false
 
 namespaces:
-- name: "lite_atreus"
+- name: "example"
   format: '$remote_addr - - [$time_local] "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent"'
   source_files:
     - /var/log/nginx/access.log
@@ -22,8 +22,8 @@ namespaces:
     - regexp: "^/([?].*)$"
       replacement: "/"
     # Shell
-    - regexp: "^/sw-shell.atreus.html([?].*)?$"
-      replacement: "/sw-shell.atreus.html"
+    - regexp: "^/sw-shell.html([?].*)?$"
+      replacement: "/sw-shell.html"
     # Service Worker
     - regexp: "^/service-worker.js([?].*)?$"
       replacement: "/service-worker.js"

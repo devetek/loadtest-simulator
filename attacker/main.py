@@ -3,7 +3,7 @@ import os
 import task
  
 class WebsiteUser(HttpUser):
-    service = 'zeus'
+    service = 'example'
 
     if os.environ['SERVICE'] is not None:
         service = os.environ['SERVICE']
