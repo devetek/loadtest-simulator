@@ -5,7 +5,7 @@ build-deploy: .validator
 	@ docker build -f nginx/Dockerfile -t prakasa1904/nginx-service-export .
 	@ docker push prakasa1904/nginx-service-export
 
-.PHONY: run-dev
+.PHONY: run-dev-arm
 run-dev-arm: .validator
 	@ rm docker-compose.yaml
 	@ cp docker-compose-arm.yaml docker-compose.yaml
@@ -13,7 +13,7 @@ run-dev-arm: .validator
 	@ docker-compose down --remove-orphans
 	@ docker-compose up
 
-.PHONY: run-dev
+.PHONY: run-dev-x86
 run-dev-x86: .validator
 	@ rm docker-compose.yaml
 	@ cp docker-compose-x86.yaml docker-compose.yaml
@@ -32,10 +32,6 @@ show-log: .validator
 .PHONY: enter-app
 enter-app: .validator
 	docker compose exec -it nginx bash
-
-.PHONY: down-dev
-down-dev: .validator
-	@ docker-compose down --remove-orphans
 
 .PHONY: down-dev
 down-dev: .validator
